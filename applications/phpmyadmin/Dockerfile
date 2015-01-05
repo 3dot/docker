@@ -11,4 +11,4 @@ RUN wget -O - "http://www.sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/$
 RUN rm -rf *.md .coveralls.yml ChangeLog composer.json config.sample.inc.php DCO doc examples phpunit.* README RELEASE-DATE-* setup
 ADD data /data
 
-ADD start.sh /config/init99
+ADD init /config/init99
