@@ -1,6 +1,5 @@
 FROM 3dot/ubuntu:latest
 MAINTAINER Miran Hojnik <docker@3dot.net>
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827BD9BF62
 RUN echo "deb http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
 RUN echo "deb-src http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
 RUN apt-get update
