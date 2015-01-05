@@ -21,6 +21,14 @@ This repository contains a collection of Docker configurations I've put together
                 php-fpm.log // php-fpm log file
             /secure
                 filename.ext // private files such as passwords or keys
+				
+- **Sails.js**
+
+	The Sails.js framework uses a very simple structure for deploying the app on /data.
+	
+		/data
+			/app
+				Here goes the sails.js project
 
 **Instructions**  
 Instructions will be here when I get around to writing them!
@@ -32,52 +40,63 @@ The following commands can be used to deploy some of the services offered by the
 
     - **phpMyAdmin**
 
-            docker run --name="phpmyadmin" -d --link mariadb:mariadb --env=VIRTUAL_HOST=phpmyadmin.example.com maxexcloo/phpmyadmin
+            docker run --name="phpmyadmin" -d --link mysqlalias:mysqlcontainer --env=VIRTUAL_HOST=phpmyadmin.example.com 3dot/phpmyadmin
+			# when linking mysqlcontainer is the name of the MySQL container you're linking to, while mysqlalias is the hostname alias available to the container as a reference to the external mysql container
 
     - **Wordpress**
 
-            docker run --name="wordpress-data" maxexcloo/data
-            docker run --name="wordpress" -it --link mariadb:mariadb --volumes-from="wordpress-data" --env=VIRTUAL_HOST=wordpress.example.com maxexcloo/wordpress
+            docker run --name="wordpress-data" 3dot/data
+            docker run --name="wordpress" -it --link mysqlalias:mysqlcontainer --volumes-from="wordpress-data" --env=VIRTUAL_HOST=wordpress.example.com 3dot/wordpress
 
 - **Base**
 
     - **Data**
 
-            docker run --name="data" -it maxexcloo/data /bin/sh
+            docker run --name="data" -it 3dot/data /bin/sh
 
     - **Debian**
 
-            docker run --name="debian" -it maxexcloo/debian /bin/bash
+            docker run --name="debian" -it 3dot/debian /bin/bash
 
     - **Ubuntu**
 
-            docker run --name="ubuntu" -it maxexcloo/ubuntu /bin/bash
+            docker run --name="ubuntu" -it 3dot/ubuntu /bin/bash
 
 - **Frameworks**
 
     - **Nginx**
 
-            docker run --name="nginx-data" maxexcloo/data
-            docker run --name="nginx" -it --volumes-from="nginx-data" --env=VIRTUAL_HOST=example.com,www.example.com maxexcloo/nginx
+            docker run --name="nginx-data" 3dot/data
+            docker run --name="nginx" -it --volumes-from="nginx-data" --env=VIRTUAL_HOST=example.com,www.example.com 3dot/nginx
 
     - **Nginx + PHP-FPM**
 
-            docker run --name="nginx-php-data" maxexcloo/data
-            docker run --name="nginx-php" -it --volumes-from="nginx-php-data" --env=VIRTUAL_HOST=example.com,www.example.com maxexcloo/nginx-php
+            docker run --name="nginx-php-data" 3dot/data
+            docker run --name="nginx-php" -it --volumes-from="nginx-php-data" --env=VIRTUAL_HOST=example.com,www.example.com 3dot/php
+	
+	- **Node.js**
+
+            docker run --name="node-data" 3dot/data
+            docker run --name="node" -it --volumes-from="node-data" --env=VIRTUAL_HOST=example.com,www.example.com 3dot/node
+	
+	- **Sails.js**
+
+            docker run --name="sails-data" 3dot/data
+            docker run --name="sails" -it --volumes-from="sails-data" --env=VIRTUAL_HOST=example.com,www.example.com 3dot/sails
 
 - **Services**
 
     - **HAProxy**
 
-            docker run --name="haproxy-data" maxexcloo/data
-            docker run --name="haproxy" -it --volumes-from="haproxy-data" -p 80:80 -p 443:443 maxexcloo/haproxy
+            docker run --name="haproxy-data" 3dot/data
+            docker run --name="haproxy" -it --volumes-from="haproxy-data" -p 80:80 -p 443:443 3dot/haproxy
         
     - **HAProxy Config**
 
-            docker run --name="haproxy-data" maxexcloo/data
-            docker run --name="haproxy-config" -it --volumes-from="haproxy-data" -v /var/run/docker.sock:/var/run/docker.sock maxexcloo/haproxy-config
+            docker run --name="haproxy-data" 3dot/data
+            docker run --name="haproxy-config" -it --volumes-from="haproxy-data" -v /var/run/docker.sock:/var/run/docker.sock 3dot/haproxy-config
 
     - **PostgreSQL**
 
-            docker run --name="postgresql-data" maxexcloo/data
-            docker run --name="postgresql" -it --volumes-from="postgresql-data" maxexcloo/postgresql
+            docker run --name="postgresql-data" 3dot/data
+            docker run --name="postgresql" -it --volumes-from="postgresql-data" 3dot/postgresql
