@@ -95,8 +95,3 @@ The following commands can be used to deploy some of the services offered by the
 
             docker run --name="haproxy-data" 3dot/data
             docker run --name="haproxy-config" -it --volumes-from="haproxy-data" -v /var/run/docker.sock:/var/run/docker.sock 3dot/haproxy-config
-
-    - **PostgreSQL**
-
-            docker run --name="postgresql-data" 3dot/data
-            docker run --name="postgresql" -it --volumes-from="postgresql-data" 3dot/postgresql
