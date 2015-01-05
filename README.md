@@ -40,7 +40,7 @@ The following commands can be used to deploy some of the services offered by the
 
     - **phpMyAdmin**
 
-            docker run --name="phpmyadmin" -d --link mysqlalias:mysqlcontainer --env=VIRTUAL_HOST=phpmyadmin.example.com 3dot/phpmyadmin
+            docker run --name="phpmyadmin" -d --link mysqlalias:mysqlcontainer --env=MYSQL_HOST=mysql.example.com 3dot/phpmyadmin
 			# when linking mysqlcontainer is the name of the MySQL container you're linking to, while mysqlalias is the hostname alias available to the container as a reference to the external mysql container
 
     - **Wordpress**
