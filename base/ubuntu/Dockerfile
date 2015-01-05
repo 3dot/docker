@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER Max Schaefer <max@excloo.com>
+MAINTAINER Miran Hojnik <docker@3dot.net>
 ADD etc /etc
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update

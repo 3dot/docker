@@ -1,4 +1,4 @@
 FROM busybox:latest
-MAINTAINER Max Schaefer <max@excloo.com>
+MAINTAINER Miran Hojnik <docker@3dot.net>
 RUN mkdir /data
 VOLUME /data
