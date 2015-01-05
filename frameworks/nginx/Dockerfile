@@ -1,5 +1,6 @@
 FROM 3dot/ubuntu:latest
 MAINTAINER Miran Hojnik <docker@3dot.net>
+RUN curl http://nginx.org/packages/keys/nginx_signing.key | apt-key add -
 RUN echo "deb http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
 RUN echo "deb-src http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
 RUN apt-get update
