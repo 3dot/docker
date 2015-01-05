@@ -7,10 +7,7 @@ RUN echo "deb http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/source
 RUN echo "deb-src http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list
 
 #Update ubuntu apt
-RUN apt-get update
-
-#Install nginx
-RUN apt-get install -y nginx
+RUN apt-get update && apt-get install -y nginx
 
 #Configure nginx
 RUN rm -rf /etc/nginx/*.d

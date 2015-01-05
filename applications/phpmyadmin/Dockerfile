@@ -1,3 +1,4 @@
+# expected env variables: MYSQL_HOST
 FROM 3dot/php:latest
 MAINTAINER Miran Hojnik <docker@3dot.net>
 
@@ -10,6 +11,4 @@ RUN wget -O - "http://www.sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/$
 RUN rm -rf *.md .coveralls.yml ChangeLog composer.json config.sample.inc.php DCO doc examples phpunit.* README RELEASE-DATE-* setup
 ADD data /data
 
-ADD ./start.sh /start.sh
-RUN chmod 755 /start.sh
-CMD ["/bin/bash", "/start.sh"]
+ADD start.sh /config/init99
