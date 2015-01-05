@@ -1,6 +1,6 @@
-FROM maxexcloo/nginx-php:latest
-MAINTAINER Max Schaefer <max@excloo.com>
-ENV VERSION 4.2.10
+FROM 3dot/php:latest
+MAINTAINER Miran Hojnik <docker@3dot.net>
+ENV VERSION 4.3.4
 RUN mkdir -p /data/http
 WORKDIR /data/http
 RUN wget -O - "http://www.sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/${VERSION}/phpMyAdmin-${VERSION}-all-languages.tar.gz/download" | tar --strip-components=1 -x -z

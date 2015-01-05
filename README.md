@@ -69,10 +69,10 @@ The following commands can be used to deploy some of the services offered by the
             docker run --name="nginx-data" 3dot/data
             docker run --name="nginx" -it --volumes-from="nginx-data" --env=VIRTUAL_HOST=example.com,www.example.com 3dot/nginx
 
-    - **Nginx + PHP-FPM**
+    - **Nginx + PHP**
 
-            docker run --name="nginx-php-data" 3dot/data
-            docker run --name="nginx-php" -it --volumes-from="nginx-php-data" --env=VIRTUAL_HOST=example.com,www.example.com 3dot/php
+            docker run --name="php-data" 3dot/data
+            docker run --name="php" -it --volumes-from="php-data" --env=VIRTUAL_HOST=example.com,www.example.com 3dot/php
 	
 	- **Node.js**
 
