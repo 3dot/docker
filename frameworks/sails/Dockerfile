@@ -9,5 +9,5 @@ ENV PORT 1337
 EXPOSE 1337
 
 #Run sails.js
-WORKDIR /data/app
-CMD ["nodejs", "app.js"]
+#WORKDIR /data/app
+#CMD ["nodejs", "app.js"]

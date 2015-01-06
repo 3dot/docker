@@ -1,0 +1,1 @@
+wget -O - "http://wordpress.org/latest.tar.gz" | tar --strip-components=1 -x -z -C /data/http
